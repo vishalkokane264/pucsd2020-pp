@@ -1,0 +1,59 @@
+#define SIZE 50			/* Size of Stack */
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void
+seperate_tok (char *infx)
+{
+  char temp[10][20] = { 0 };
+  int i = 0, count = 0;
+//    char *p=(char*)malloc(sizeof(char)+20);
+  char p[20] = { 0 };
+  int st = 0, end = 0;
+  for (i = 0; i < strlen (infx); i++)
+    {
+      if (!ispunct (infx[i]))
+	{
+	  end++;
+	}
+      else
+	{
+	  for (int j = st, k = 0; j < end; j++, k++)
+	    {
+	      p[k] = infx[j];
+	    }
+	  strcpy (temp[count], p);
+//            printf("%s\n",temp[count]);
+	  for (int j = 0; j < 20; j++)
+	    {
+	      p[j] = 0;
+	    }
+	  end++;
+	  st = end;
+	  count++;
+	}
+
+    }
+  for (int j = st, k = 0; j < end; j++, k++)
+    {
+      p[k] = infx[j];
+    }
+  strcpy (temp[count], p);
+//            printf("%s\n",temp[count]);
+  for (int k = 0; k <= count; k++)
+    {
+      printf ("%s\n", temp[k]);
+    }
+}
+
+void
+main ()
+{				/* Main Program */
+
+  char infx[50];
+  printf ("Input the expression:");
+//  fgets (infx, 50, stdin);
+  gets (infx);
+  seperate_tok (infx);
+}
