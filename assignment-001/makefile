@@ -1,14 +1,7 @@
-CC      = gcc
-CFLAGS  = -g
-RM      = rm -f
-
-
 default: all
-
 all: cal
-
 cal: src/main.c
-	$(CC) $(CFLAGS) -o calc src/main.c include/addition.h include/subtraction.h include/multiplication.h include/division.h include/modulus.h
-
+	gcc -g -o calc src/main.c include/addition.h include/subtraction.h include/multiplication.h include/division.h include/modulus.h
+	./calc
 clean veryclean:
-	$(RM) cal
+	rm -rf cal
