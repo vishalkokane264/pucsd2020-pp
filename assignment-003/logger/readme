@@ -1,0 +1,3 @@
+We need to control application logging.
+log4cpp
+implement logger in cpp
