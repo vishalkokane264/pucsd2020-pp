@@ -1,0 +1,27 @@
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:9383	Examine the log output.
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:886	26 14:49:45.738	1
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:2777	4:49:45.738	1
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:6915	Examine the log output.
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:7793	Examine the log output.
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:8335	Examine the log output.
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:5386	DETAIL:  User does not have CONNECT privilege.
+Wed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:492	ERROR:  function pg_catalog.date_part(unknown, unknown) is not unique at characWed Mar  4 10:47:11 2020	File:logger.c	Func:printMessages	Line:6649	Examine the log output.
+sWed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:885	 done
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:6267	Examine the log output.
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:6323	Examine the log output.
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:334	STATEMENT:  select id,country from datagov where (city,select (max(pollutant_maWed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:743	LOG:  autovacuum launcher started
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:23	LOG:  database system is shut down
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:25	.LOG:  database system was shut down at 2020-01-29 00:33:11 IST
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:1403	LOG:  autovacuum launcher shutting down
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:1764	FATAL:  permission denied for database "exam1"
+Wed Mar  4 10:51:05 2020	File:logger.c	Func:printMessages	Line:868	waiting for server to start....LOG:  database system was shut down at 2020-02-0
+
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:885	 done
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:6267	Examine the log output.
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:6323	Examine the log output.
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:334	STATEMENT:  select id,country from datagov where (city,select (max(pollutant_maWed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:743	LOG:  autovacuum launcher started
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:23	LOG:  database system is shut down
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:25	.LOG:  database system was shut down at 2020-01-29 00:33:11 IST
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:1403	LOG:  autovacuum launcher shutting down
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:1764	FATAL:  permission denied for database "exam1"
+Wed Mar  4 10:51:19 2020	File:logger.c	Func:printMessages	Line:868	waiting for server to start....LOG:  database system was shut down at 2020-02-0

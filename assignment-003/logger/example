@@ -1,0 +1,1978 @@
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-01-28 18:16:29 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-01-28 18:29:43 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-01-29 00:33:11 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  role "nayan" cannot be dropped because some objects depend on it
+DETAIL:  privileges for database nayan
+STATEMENT:  drop user nayan
+	;
+ERROR:  role "database1" does not exist
+STATEMENT:  drop user database1;
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-01-29 12:57:16 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-01-29 23:29:51 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  relation "emp" already exists
+STATEMENT:  create table emp(eid int,ename varchar(20));
+WARNING:  there is no transaction in progress
+WARNING:  there is no transaction in progress
+WARNING:  there is no transaction in progress
+ERROR:  syntax error at or near ";" at character 11
+STATEMENT:  truncate 
+	;
+ERROR:  column "name" does not exist at character 25
+STATEMENT:  select * from emp where name='vishal' having eid=1;
+ERROR:  column "emp.eid" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select * from emp where ename='vishal' having eid=1;
+ERROR:  column "emp.eid" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select * from emp where ename='vishal' group by(ename) ;
+ERROR:  relation "emp" already exists
+STATEMENT:  create table emp(eid int,ename varchar(20),pay int);
+ERROR:  syntax error at or near "asc" at character 33
+STATEMENT:  select * from emp2 group by eid asc;
+ERROR:  syntax error at or near "asc" at character 29
+STATEMENT:  select * from emp2 order by asc;
+ERROR:  syntax error at or near "asc" at character 33
+STATEMENT:  select * from emp2 orderby(pay) asc;
+ERROR:  syntax error at or near "limit3" at character 38
+STATEMENT:  select * from emp2 order by pay desc limit3;
+ERROR:  LIMIT #,# syntax is not supported at character 38
+HINT:  Use separate LIMIT and OFFSET clauses.
+STATEMENT:  select * from emp2 order by pay desc limit 3,2;
+ERROR:  syntax error at or near "2" at character 46
+STATEMENT:  select * from emp2 order by pay desc limit 3 2;
+ERROR:  LIMIT #,# syntax is not supported at character 38
+HINT:  Use separate LIMIT and OFFSET clauses.
+STATEMENT:  select * from emp2 order by pay desc limit 3,1;
+ERROR:  LIMIT #,# syntax is not supported at character 38
+HINT:  Use separate LIMIT and OFFSET clauses.
+STATEMENT:  select * from emp2 order by pay desc limit 2,2;
+ERROR:  LIMIT #,# syntax is not supported at character 38
+HINT:  Use separate LIMIT and OFFSET clauses.
+STATEMENT:  select * from emp2 order by pay desc limit 1,1;
+ERROR:  LIMIT #,# syntax is not supported at character 40
+HINT:  Use separate LIMIT and OFFSET clauses.
+STATEMENT:  select pay from emp2 order by pay desc limit 1,1;
+ERROR:  syntax error at or near "desc" at character 31
+STATEMENT:  select pay from emp2 order by desc limit 1,1;
+ERROR:  function initcase(character varying) does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select initcase(ename) from emp2;
+ERROR:  relation "cust" already exists
+STATEMENT:  create table cust as select * from emp2 where 1=2;
+ERROR:  syntax error at or near "1" at character 1
+STATEMENT:  1=2;
+ERROR:  syntax error at or near "1" at character 1
+STATEMENT:  1=2
+	;
+ERROR:  relation "cust2" already exists
+STATEMENT:  create table cust2 as select * from emp2 where false;
+ERROR:  column "rownum" does not exist at character 8
+STATEMENT:  select rownum, * from emp2;
+ERROR:  column "rowno" does not exist at character 8
+STATEMENT:  select rowno, * from emp2;
+ERROR:  column "rowno" does not exist at character 8
+STATEMENT:  select rowno from emp2;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select * from emp2 group by eid;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename from emp2 group by eid;
+ERROR:  aggregate functions are not allowed in WHERE at character 34
+STATEMENT:  select eid,ename from emp2 where count(eid)>2;
+ERROR:  syntax error at or near "select" at character 32
+STATEMENT:  select eid from emp2 where eid(select max(eid) from customers c where eid=c.eid);
+ERROR:  relation "customers" does not exist at character 57
+STATEMENT:  select eid from emp2 where eid in (select max(eid) from customers c where eid=c.eid);
+ERROR:  relation "customers" does not exist at character 55
+STATEMENT:  select eid from emp2 where eid= (select max(eid) from customers c where eid=c.eid);
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select * from emp2 group by(eid);
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename from emp2 group by(eid);
+ERROR:  aggregate functions are not allowed in WHERE at character 34
+STATEMENT:  select eid,ename from emp2 where count(eid)>1;
+ERROR:  column "emp2.eid" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select eid,ename from emp2 having count(eid)>1;
+ERROR:  syntax error at or near "count" at character 41
+STATEMENT:  select eid,ename from emp2 group by eid count(eid)>1;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename from emp2 group by eid having count(eid)>1;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename from emp2 group by eid having count(*)>1;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename,count(*) from emp2 group by eid having count(*)>1;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename,count(*) from emp2 group by(eid) having count(*)>1;
+ERROR:  aggregate functions are not allowed in WHERE at character 26
+STATEMENT:  select * from emp2 where count(*) >1;
+ERROR:  syntax error at or near "*" at character 26
+STATEMENT:  select * from emp2 count(*) >1;
+ERROR:  column "emp2.eid" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select * from emp2 having count(*) >1;
+ERROR:  syntax error at or near ";" at character 83
+STATEMENT:  select * from emp2 e2 where(select count(*) from emp2 e22 where(e2.eid=e22.eid) >1;
+	);
+ERROR:  missing FROM-clause entry for table "e2" at character 37
+STATEMENT:  select count(*) from emp2 e22 where e2.eid=e22.eid;
+ERROR:  syntax error at or near "e2" at character 31
+STATEMENT:  select count(*) from emp2 e22 e2 where e2.eid=e22.eid;
+ERROR:  syntax error at or near "(" at character 23
+STATEMENT:  select eid,ename count(*) from emp2 group by eid having count(*)>1;
+ERROR:  column "emp2.ename" must appear in the GROUP BY clause or be used in an aggregate function at character 12
+STATEMENT:  select eid,ename,count(*) from emp2 group by eid having count(*)>1;
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-01-30 16:12:08 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-01-30 23:31:01 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  syntax error at or near ";" at character 18
+STATEMENT:  create sequence 
+	;
+ERROR:  column "addition" does not exist at character 16
+STATEMENT:  select nextval(addition);
+ERROR:  syntax error at or near "int" at character 45
+STATEMENT:  create table orders(order_id serial,item id int);
+ERROR:  syntax error at or near "[" at character 20
+STATEMENT:  insert into orders(['item_name']) values('soap');
+ERROR:  syntax error at or near "values" at character 33
+STATEMENT:  insert into orders['item_name'] values('soap');
+ERROR:  invalid input syntax for integer: "soap" at character 27
+STATEMENT:  insert into orders values('soap');
+ERROR:  relation "pg_attributes" does not exist at character 15
+STATEMENT:  select * from pg_attributes;
+ERROR:  column "atttypeid" does not exist at character 25
+STATEMENT:  select attrelid,attname,atttypeid from pg_attribute ;
+ERROR:  column "datid" does not exist at character 16
+STATEMENT:  select datname,datid from pg_database;
+ERROR:  relation "pg_catalog.pg_" does not exist at character 15
+STATEMENT:  select * from pg_catalog.pg_;
+ERROR:  relation "pg_table" does not exist at character 15
+STATEMENT:  select * from pg_table where tablename='orders';
+FATAL:  database "xyz" does not exist
+ERROR:  syntax error at or near "crate" at character 1
+STATEMENT:  crate user deva;
+ERROR:  role "deva1" already exists
+STATEMENT:  create user deva1 with login;
+FATAL:  database "deva1" does not exist
+ERROR:  syntax error at or near "serial" at character 34
+STATEMENT:  create table student(rno integer serial primary key,name varchar(20));
+FATAL:  database "vishal0" does not exist
+ERROR:  invalid privilege type SELECT for database
+STATEMENT:  grant SELECT on DATABASE namdev to namdev;
+ERROR:  invalid privilege type SELECT for database
+STATEMENT:  grant SELECT on DATABASE namdev TO namdev;
+ERROR:  permission denied for relation cust
+STATEMENT:  select * from cust;
+ERROR:  permission denied for relation addition
+STATEMENT:  select * from addition ;
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-01-31 19:03:08 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....LOG:  database system was interrupted; last known up at 2020-02-01 08:26:05 IST
+LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/183EF58
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  could not open file "/home/vishal/data.txt" for reading: No such file or directory
+STATEMENT:  copy datagov(id,country,state,city,station,last_update,pollutant_id,pollutant_min,pollutant_max,pollutant_avg,pollutant_unit) from '/home/vishal/data.txt' delimiter ',' csv header;
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy datagov(id,country,state,city,station,last_update,pollutant_id,pollutant_min,pollutant_max,pollutant_avg,pollutant_unit) from '/home/vishal/data.csv' delimiter '\n' csv header;
+ERROR:  missing data for column "state"
+CONTEXT:  COPY datagov, line 2: "1,India,Andhra_Pradesh,Amaravati,"Secretariat, Amaravati - APPCB","01-02-2020 04:00:00",PM2.5,25,53,..."
+STATEMENT:  copy datagov(id,country,state,city,station,last_update,pollutant_id,pollutant_min,pollutant_max,pollutant_avg,pollutant_unit) from '/home/vishal/data.csv' delimiter ' ' csv header;
+ERROR:  column "poluttant_max" does not exist at character 12
+STATEMENT:  select max(poluttant_max) from datagov ;
+ERROR:  column "polluttant_max" does not exist at character 12
+STATEMENT:  select max(polluttant_max) from datagov ;
+ERROR:  column "m" does not exist at character 44
+STATEMENT:  select id,country from datagov where (city,m,n)=(select city, max(pollutant_max) m,max(pollutant_avg) n from datagov group by city);
+ERROR:  column "m" does not exist at character 44
+STATEMENT:  select id,country from datagov where (city,m,n)=(select city, max(pollutant_max) as m,max(pollutant_avg) as  n from datagov group by city);
+ERROR:  subquery must return only one column at character 43
+STATEMENT:  select id,country from datagov where city=(select city, max(pollutant_max) as m,max(pollutant_avg) as  n from datagov group by city);
+ERROR:  syntax error at or near "select" at character 43
+STATEMENT:  select id,country from datagov where city=select city, max(pollutant_max) as m,max(pollutant_avg) as  n from datagov group by city;
+ERROR:  syntax error at or near "select" at character 43
+STATEMENT:  select id,country from datagov where city=select city from datagov group by city;
+ERROR:  syntax error at or near "select" at character 46
+STATEMENT:  select id,country from datagov where city in select city from datagov group by city;
+ERROR:  column "m" does not exist at character 44
+STATEMENT:  select id,country from datagov where (city,m,n) in (select city, max(pollutant_max) as m,max(pollutant_avg) as  n from datagov group by city);
+ERROR:  syntax error at or near "select" at character 44
+STATEMENT:  select id,country from datagov where (city,select (max(pollutant_max) from datagov) as m,(select min(pollutant_avg) from datagov) as n);
+ERROR:  syntax error at or near "select" at character 44
+STATEMENT:  select id,country from datagov where (city,select (max(pollutant_max) from datagov) as m,select min(pollutant_avg) from datagov) as n);
+ERROR:  column reference "city" is ambiguous at character 52
+STATEMENT:  select id from datagov d1 inner join datagov d2 on city;
+ERROR:  missing FROM-clause entry for table "t1" at character 52
+STATEMENT:  select id from datagov d1 inner join datagov d2 on t1.city=t2.city;
+ERROR:  column reference "id" is ambiguous at character 8
+STATEMENT:  select id from datagov d1 inner join datagov d2 on d1.city=d2.city;
+ERROR:  syntax error at or near "orderby" at character 81
+STATEMENT:  select distinct(d1.id) from datagov d1 inner join datagov d2 on d1.city=d2.city orderby asc;
+ERROR:  syntax error at or near "asc" at character 90
+STATEMENT:  select distinct(d1.id) from datagov d1 inner join datagov d2 on d1.city=d2.city order by asc;
+ERROR:  syntax error at or near "orderby" at character 81
+STATEMENT:  select distinct(d1.id) from datagov d1 inner join datagov d2 on d1.city=d2.city orderby d1.id asc;
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-02 16:37:19 IST
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-02-02 20:34:25 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start......FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-03 12:31:13 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start......LOG:  database system was shut down at 2020-02-03 20:15:12 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-03 23:13:50 IST
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  column "date" does not exist at character 8
+STATEMENT:  select date;
+ERROR:  relation "timestamp" does not exist at character 18
+STATEMENT:  select date from timestamp;
+ERROR:  type "day" does not exist at character 42
+STATEMENT:  SELECT '2018-07-25 10:30:30'::TIMESTAMP::DAY;
+ERROR:  syntax error at or near "limit2" at character 38
+STATEMENT:  select * from emp2 order by pay desc limit2;
+ERROR:  syntax error at or near "bdate" at character 30
+STATEMENT:  create table employee(id int bdate date);
+ERROR:  date/time field value out of range: "20-07-1996" at character 32
+HINT:  Perhaps you need a different "datestyle" setting.
+STATEMENT:  insert into employee values (1,'20-07-1996');
+ERROR:  date/time field value out of range: "1996-20-07" at character 32
+HINT:  Perhaps you need a different "datestyle" setting.
+STATEMENT:  insert into employee values (1,'1996-20-07');
+ERROR:  function year(date) does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select year(bdate) from employee;
+ERROR:  syntax error at or near "year" at character 16
+STATEMENT:  select extract year from bdate from employee;
+ERROR:  column "age" does not exist at character 85
+STATEMENT:  select extract(year from now())-extract(year from bdate) as age from employee where age>24;
+ERROR:  column "age" does not exist at character 31
+STATEMENT:  select id from employee where age>(select extract(year from now())-extract(year from bdate) as age from employee);
+ERROR:  more than one row returned by a subquery used as an expression
+STATEMENT:  select id from employee where (select extract(year from now())-extract(year from bdate) as age from employee)>24;
+ERROR:  column "employee.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select id from employee having (select extract(year from now())-extract(year from bdate) as age from employee)>24;
+ERROR:  column "id" does not exist at character 8
+STATEMENT:  select id,(select extract(year from now())-extract(year from bdate) as age from employee)>24;
+ERROR:  column "id" does not exist at character 8
+STATEMENT:  select id,(select extract(year from now())-extract(year from bdate) as age from employee);
+ERROR:  column "id" does not exist at character 8
+STATEMENT:  select id,(select extract(year from now())-extract(year from bdate) as age);
+ERROR:  column "age" does not exist at character 97
+STATEMENT:  select id,(select extract(year from now())-extract(year from bdate) as age) from employee where age>24;
+ERROR:  syntax error at or near ">" at character 75
+STATEMENT:  select id,(select extract(year from now())-extract(year from bdate) as age>24) from employee where ;
+ERROR:  column "age" does not exist at character 97
+STATEMENT:  select id,(select extract(year from now())-extract(year from bdate) as age) from employee where age>24;
+ERROR:  function currdate() does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select currdate();
+ERROR:  function curdate() does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select curdate();
+ERROR:  column "2017-03-25" does not exist at character 21
+STATEMENT:  select current_date-"2017-03-25";
+ERROR:  syntax error at or near "year" at character 16
+STATEMENT:  select extract year from (current_date-'2017-03-25');
+ERROR:  syntax error at or near "YEAR" at character 16
+STATEMENT:  select extract YEAR from (current_date-'2017-03-25');
+ERROR:  function pg_catalog.date_part(unknown, integer) does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select extract(YEAR from (current_date-'2017-03-25'));
+ERROR:  syntax error at or near ")" at character 71
+STATEMENT:  select extract(YEAR from current_date)-extract(year from '2017-03-25'));
+ERROR:  function pg_catalog.date_part(unknown, unknown) is not unique at character 40
+HINT:  Could not choose a best candidate function. You might need to add explicit type casts.
+STATEMENT:  select extract(YEAR from current_date)-extract(year from '2017-03-25');
+ERROR:  syntax error at or near "," at character 23
+STATEMENT:  select extract(century,day from now());
+ERROR:  syntax error at or near "decade" at character 2
+STATEMENT:  (decade from now());
+ERROR:  syntax error at or near "extract" at character 1
+STATEMENT:  extract(seconds from now());
+ERROR:  syntax error at or near "now" at character 25
+STATEMENT:  select extract(yearfrom now());
+ERROR:  column "201702-20" does not exist at character 8
+STATEMENT:  select "201702-20";
+ERROR:  function to_date(unknown) does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select to_date( '2017-02-20' )as date;
+ERROR:  relation "pg_table" does not exist at character 15
+STATEMENT:  select * from pg_table;
+ERROR:  relation "pg_table" does not exist at character 15
+STATEMENT:  select * from pg_table;
+ERROR:  column "oid" does not exist at character 35
+STATEMENT:  select * from pg_attribute  where oid=16435;
+ERROR:  duplicate key value violates unique constraint "department_pkey"
+DETAIL:  Key (dept_id)=(11) already exists.
+STATEMENT:  insert into department(select * from department);
+ERROR:  column "dept2" does not exist at character 49
+STATEMENT:  select oid, relname from pg_class where relname="dept2";
+ERROR:  column "dept2" does not exist at character 49
+STATEMENT:  select oid, relname from pg_class where relname="dept2";
+ERROR:  column "relname" does not exist at character 8
+STATEMENT:  select relname from pg_constraint ;
+ERROR:  relation "pg_sequence" does not exist at character 21
+STATEMENT:  select relname from pg_sequence;
+ERROR:  function to_char(unknown) does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select to_char('mon-dd') from now();
+ERROR:  column "asd" does not exist at character 16
+STATEMENT:  select to_char(asd,'mon-dd') from now();
+ERROR:  timestamp with time zone units "mon-dd" not recognized
+STATEMENT:  select extract('mon-dd' from now());
+ERROR:  syntax error at or near "(" at character 42
+STATEMENT:  select extract('mon-dd' from current_date());
+ERROR:  timestamp units "mon-dd" not recognized
+STATEMENT:  select extract('mon-dd' from current_date);
+ERROR:  syntax error at or near "," at character 21
+STATEMENT:  select extract(month,day from current_date);
+ERROR:  syntax error at or near "-" at character 21
+STATEMENT:  select extract(month-day from current_date);
+ERROR:  function to_char(date) does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select to_char(current_date);
+ERROR:  function age() does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select age();
+ERROR:  unrecognized configuration parameter "idle_in_transaction_session_timeout"
+STATEMENT:  SET idle_in_transaction_session_timeout = 0;
+ERROR:  unrecognized configuration parameter "row_security"
+STATEMENT:  SET row_security = off;
+ERROR:  cannot drop the currently open database
+STATEMENT:  DROP DATABASE dvdrental;
+ERROR:  invalid locale name: "English_United States.1252"
+STATEMENT:  CREATE DATABASE dvdrental WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'English_United States.1252' LC_CTYPE = 'English_United States.1252';
+ERROR:  unrecognized configuration parameter "idle_in_transaction_session_timeout"
+STATEMENT:  SET idle_in_transaction_session_timeout = 0;
+ERROR:  unrecognized configuration parameter "row_security"
+STATEMENT:  SET row_security = off;
+ERROR:  could not open file "$$PATH$$/3057.dat" for reading: No such file or directory
+STATEMENT:  COPY public.actor (actor_id, first_name, last_name, last_update) FROM '$$PATH$$/3057.dat';
+ERROR:  could not open file "$$PATH$$/3065.dat" for reading: No such file or directory
+STATEMENT:  COPY public.address (address_id, address, address2, district, city_id, postal_code, phone, last_update) FROM '$$PATH$$/3065.dat';
+ERROR:  could not open file "$$PATH$$/3059.dat" for reading: No such file or directory
+STATEMENT:  COPY public.category (category_id, name, last_update) FROM '$$PATH$$/3059.dat';
+ERROR:  could not open file "$$PATH$$/3067.dat" for reading: No such file or directory
+STATEMENT:  COPY public.city (city_id, city, country_id, last_update) FROM '$$PATH$$/3067.dat';
+ERROR:  could not open file "$$PATH$$/3069.dat" for reading: No such file or directory
+STATEMENT:  COPY public.country (country_id, country, last_update) FROM '$$PATH$$/3069.dat';
+ERROR:  could not open file "$$PATH$$/3055.dat" for reading: No such file or directory
+STATEMENT:  COPY public.customer (customer_id, store_id, first_name, last_name, email, address_id, activebool, create_date, last_update, active) FROM '$$PATH$$/3055.dat';
+ERROR:  could not open file "$$PATH$$/3061.dat" for reading: No such file or directory
+STATEMENT:  COPY public.film (film_id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, last_update, special_features, fulltext) FROM '$$PATH$$/3061.dat';
+ERROR:  could not open file "$$PATH$$/3062.dat" for reading: No such file or directory
+STATEMENT:  COPY public.film_actor (actor_id, film_id, last_update) FROM '$$PATH$$/3062.dat';
+ERROR:  could not open file "$$PATH$$/3063.dat" for reading: No such file or directory
+STATEMENT:  COPY public.film_category (film_id, category_id, last_update) FROM '$$PATH$$/3063.dat';
+ERROR:  could not open file "$$PATH$$/3071.dat" for reading: No such file or directory
+STATEMENT:  COPY public.inventory (inventory_id, film_id, store_id, last_update) FROM '$$PATH$$/3071.dat';
+ERROR:  could not open file "$$PATH$$/3073.dat" for reading: No such file or directory
+STATEMENT:  COPY public.language (language_id, name, last_update) FROM '$$PATH$$/3073.dat';
+ERROR:  could not open file "$$PATH$$/3075.dat" for reading: No such file or directory
+STATEMENT:  COPY public.payment (payment_id, customer_id, staff_id, rental_id, amount, payment_date) FROM '$$PATH$$/3075.dat';
+ERROR:  could not open file "$$PATH$$/3077.dat" for reading: No such file or directory
+STATEMENT:  COPY public.rental (rental_id, rental_date, inventory_id, customer_id, return_date, staff_id, last_update) FROM '$$PATH$$/3077.dat';
+ERROR:  could not open file "$$PATH$$/3079.dat" for reading: No such file or directory
+STATEMENT:  COPY public.staff (staff_id, first_name, last_name, address_id, email, store_id, active, username, password, last_update, picture) FROM '$$PATH$$/3079.dat';
+ERROR:  could not open file "$$PATH$$/3081.dat" for reading: No such file or directory
+STATEMENT:  COPY public.store (store_id, manager_staff_id, address_id, last_update) FROM '$$PATH$$/3081.dat';
+ERROR:  syntax error at or near "524" at character 1
+ERROR:  syntax error at or near "*" at character 6
+STATEMENT:  copy * from /home/vishal/Downloads/dvdrental header csv delimiter '\t';
+ERROR:  syntax error at or near "*" at character 6
+STATEMENT:  copy * from /home/vishal/Downloads/dvdrental/ header csv delimiter '\t';
+ERROR:  syntax error at or near "/" at character 17
+STATEMENT:  copy actor from /home/vishal/Downloads/dvdrental/ header csv delimiter '\t';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy actor from '/home/vishal/Downloads/dvdrental/' header csv delimiter '\t';
+ERROR:  "/home/vishal/Downloads/dvdrental/" is a directory
+STATEMENT:  copy actor from '/home/vishal/Downloads/dvdrental/' header csv delimiter ' ';
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/*" for reading: No such file or directory
+STATEMENT:  copy actor from '/home/vishal/Downloads/dvdrental/*' header csv delimiter ' ';
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/*" for reading: No such file or directory
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/*' header csv delimiter ' ';
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/3055.dat" for reading: Permission denied
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter ' ';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter '';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter '\t';
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/3055.dat" for reading: Permission denied
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter ' ';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter '\t';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  COPY  customer FROM STDIN header csv delimiter '\t';
+ERROR:  syntax error at or near ";" at character 47
+STATEMENT:  COPY  customer FROM STDIN header csv delimiter;
+ERROR:  syntax error at or near ";" at character 84
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter;
+ERROR:  syntax error at or near ";" at character 85
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.dat' header csv delimiter
+	;
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+FATAL:  role "postgres2" does not exist
+ERROR:  syntax error at or near "(" at character 13
+STATEMENT:  create table(id int primary key);
+ERROR:  permission denied to create role
+STATEMENT:  create role vishal2;
+ERROR:  syntax error at or near "as" at character 14
+STATEMENT:  create table as select * from emp;
+ERROR:  relation "emp4" already exists
+STATEMENT:  create table emp4 as select * from emp2;
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-04 21:36:35 IST
+FATAL:  the database system is starting up
+LOG:  could not send data to client: Broken pipe
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  syntax error at or near "delimite" at character 75
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.csv' header csv delimite
+	;
+ERROR:  syntax error at or near ";" at character 84
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.csv' header csv delimiter;
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/3055.csv" for reading: Permission denied
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.csv' header csv delimiter',';
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/3055.csv" for reading: Permission denied
+STATEMENT:  copy customer from '/home/vishal/Downloads/dvdrental/3055.csv' header csv delimiter ',';
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+FATAL:  terminating connection due to administrator command
+LOG:  could not send data to client: Broken pipe
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-04 22:04:39 IST
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  column "activebook" of relation "customer" does not exist
+STATEMENT:  copy customer(customer_id,store_id,first_name,last_name,email,address_id,activebook,create_date,last_update,active) from '/home/vishal/Downloads/dvdrental' delimiter ',' csv header;
+ERROR:  syntax error at or near "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" at character 1
+STATEMENT:  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	aaaaaaaaaaaaaa;
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/3055.dat" for reading: No such file or directory
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.dat' with(format csv);
+ERROR:  could not open file "/home/vishal/Downloads/dvdrental/3055.csv" for reading: Permission denied
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' with(format csv);
+ERROR:  invalid input syntax for integer: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26 14:49:45.738	1"
+CONTEXT:  COPY customer, line 1, column customer_id: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26 14:49:45.738	1"
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' with(format csv);
+ERROR:  invalid input syntax for integer: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26 14:49:45.738	1"
+CONTEXT:  COPY customer, line 1, column customer_id: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26 14:49:45.738	1"
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' with(format csv);
+ERROR:  invalid input syntax for integer: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26 14:49:45.738	1"
+CONTEXT:  COPY customer, line 1, column customer_id: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26 14:49:45.738	1"
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' with(format csv);
+ERROR:  syntax error at or near "delimiter" at character 82
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' with(format csv) delimiter ' ';
+ERROR:  invalid input syntax for integer: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26"
+CONTEXT:  COPY customer, line 1, column customer_id: "524	1	Jared	Ely	jared.ely@sakilacustomer.org	530	t	2006-02-14	2013-05-26"
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' delimiter ' ';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' delimiter '    ';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055.csv' delimiter '\t';
+ERROR:  COPY delimiter must be a single one-byte character
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055_cust.csv' delimiter '\t';
+ERROR:  insert or update on table "customer" violates foreign key constraint "customer_address_id_fkey"
+DETAIL:  Key (address_id)=(530) is not present in table "address".
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055_cust.csv' delimiter ',';
+ERROR:  insert or update on table "customer" violates foreign key constraint "customer_address_id_fkey"
+DETAIL:  Key (address_id)=(530) is not present in table "address".
+STATEMENT:  copy customer  from '/home/vishal/Downloads/dvdrental/3055_cust.csv' delimiter ',';
+ERROR:  syntax error at or near "(" at character 20
+STATEMENT:  select current_date()-now()
+	;
+ERROR:  syntax error at or near "cre" at character 1
+STATEMENT:  cre
+	;
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-04 23:46:55 IST
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-05 13:57:14 IST
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  function getdate() does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select getdate();
+ERROR:  function getdate() does not exist at character 8
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select GetDate();
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-05 23:55:38 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-02-06 10:07:16 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-06 23:54:58 IST
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start......FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-07 09:36:11 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-07 12:35:16 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....LOG:  database system was shut down at 2020-02-07 14:24:14 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-07 20:59:19 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start.......LOG:  database system was interrupted; last known up at 2020-02-08 09:30:30 IST
+FATAL:  the database system is starting up
+.LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/5B0EA20
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start......FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-08 23:48:35 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-09 01:04:43 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.......FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-09 10:44:32 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start......FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-09 18:57:47 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system shutdown was interrupted; last known up at 2020-02-09 19:41:55 IST
+LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/5B0EC28
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-09 20:02:08 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-09 22:42:48 IST
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-10 09:20:40 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-10 14:45:10 IST
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was interrupted; last known up at 2020-02-10 18:30:06 IST
+LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/5B0EE30
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-11 00:52:15 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-11 10:23:47 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-12 14:10:24 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-12 15:36:15 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-13 22:39:14 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-14 00:24:20 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start......FATAL:  the database system is starting up
+.LOG:  database system was interrupted; last known up at 2020-02-14 11:02:18 IST
+LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/5B0F108
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-14 13:01:34 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-14 15:22:44 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.......FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-15 00:14:20 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.......FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-15 11:14:21 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-15 12:39:24 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-15 19:12:55 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-15 21:34:46 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-15 21:47:26 IST
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-15 22:49:45 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-16 14:02:30 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-02-16 23:44:30 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-02-17 00:46:44 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-17 12:34:05 IST
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+WARNING:  pgstat wait timeout
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....LOG:  database system was interrupted; last known up at 2020-02-17 13:48:35 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/5B0F6B8
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-17 23:59:50 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-18 08:46:16 IST
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-19 01:41:47 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-19 13:55:35 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-19 19:22:03 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-20 14:52:44 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-21 20:48:38 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-22 08:29:37 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-22 11:39:53 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-23 00:38:39 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start......FATAL:  the database system is starting up
+LOG:  database system shutdown was interrupted; last known up at 2020-02-23 18:57:27 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/5B253D8
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-24 00:11:02 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-24 21:16:49 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start......FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-25 10:38:09 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start......FATAL:  the database system is starting up
+.LOG:  database system was interrupted; last known up at 2020-02-25 10:39:55 IST
+LOG:  database system was not properly shut down; automatic recovery in progress
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  record with zero length at 0/5B25578
+LOG:  redo is not required
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-26 09:22:49 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-26 22:43:14 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  received fast shutdown request
+waiting for server to start.....FATAL:  the database system is starting up
+LOG:  database system was shut down at 2020-02-27 20:21:36 IST
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-27 22:57:38 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  role "user1" already exists
+STATEMENT:  create user User1;
+ERROR:  syntax error at or near "l" at character 1
+STATEMENT:  l
+	grant ALL ON DATABASE exam1 TO group1;
+ERROR:  invalid regular expression: quantifier operand invalid
+STATEMENT:  SELECT c.oid,
+	  n.nspname,
+	  c.relname
+	FROM pg_catalog.pg_class c
+	     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+	WHERE c.relname ~ '^(+s)$'
+	  AND pg_catalog.pg_table_is_visible(c.oid)
+	ORDER BY 2, 3;
+FATAL:  database "user10" does not exist
+FATAL:  database "user12" does not exist
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start.....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-02-28 20:15:02 IST
+FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+ERROR:  syntax error at or near "databases" at character 6
+STATEMENT:  drop databases;
+ERROR:  syntax error at or near ";" at character 14
+STATEMENT:  drop database;
+ERROR:  syntax error at or near "*" at character 15
+STATEMENT:  drop database *;
+ERROR:  role "user11" does not exist
+STATEMENT:  drop user user11;
+ERROR:  role "user15" does not exist
+STATEMENT:  drop user user15;
+FATAL:  role "vishal" does not exist
+FATAL:  database "vishal" does not exist
+FATAL:  database "vishal" does not exist
+ERROR:  syntax error at or near "create" at character 8
+STATEMENT:  create create database exam1;
+ERROR:  syntax error at or near "create" at character 32
+STATEMENT:  create user user4 nosuperuser 
+	create user user4 nosuperuser 
+	;
+FATAL:  database "user4" does not exist
+ERROR:  syntax error at or near ";" at character 17
+STATEMENT:  create table emp;
+ERROR:  syntax error at or near ";" at character 40
+STATEMENT:  create database exam2 connection limit ;
+ERROR:  role "user4" cannot be dropped because some objects depend on it
+DETAIL:  privileges for database exam1
+	1 object in database exam1
+STATEMENT:  drop user user4;
+FATAL:  too many connections for role "user4"
+FATAL:  too many connections for role "user4"
+FATAL:  too many connections for database "exam1"
+ERROR:  syntax error at or near "=" at character 26
+STATEMENT:  alter user user5 password="user5"
+	;
+ERROR:  syntax error at or near ""user5"" at character 27
+STATEMENT:  alter user user5 password "user5";
+ERROR:  syntax error at or near ""user5"" at character 27
+STATEMENT:  alter user user5 PASSWORD "user5";
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 09:19:36 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 09:22:15 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+FATAL:  database "user5" does not exist
+FATAL:  database "user5" does not exist
+FATAL:  database "user5" does not exist
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  database "exam3" does not exist
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+ERROR:  invalid privilege type INSERT for database
+STATEMENT:  grant INSERT ON DATABASE exam1 TO user1;
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 10:02:45 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  database "user1" does not exist
+FATAL:  database "eser2" does not exist
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+ERROR:  database "exam" does not exist
+STATEMENT:  grant CONNECT ON DATABASE exam TO avengers;
+FATAL:  database "user1" does not exist
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+FATAL:  terminating connection due to administrator command
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 10:31:02 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+FATAL:  password authentication failed for user "postgres"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "vishal"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "vishal"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "vishal"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "vishal"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "postgres"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "user3"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "user3"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  database "user3" does not exist
+FATAL:  permission denied for database "exam1"
+DETAIL:  User does not have CONNECT privilege.
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  database "user1" does not exist
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+ERROR:  role "nikhil" does not exist
+STATEMENT:  ALTER USER nikhil PASSWORD 'md5976687686e363d5100b42bf67ac66bb8'
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+FATAL:  password authentication failed for user "nikhil"
+DETAIL:  Connection matched pg_hba.conf line 84: "local   all             all                                     md5"
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  received SIGHUP, reloading configuration files
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start......FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-03-01 14:57:46 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  received SIGHUP, reloading configuration files
+LOG:  shutting down
+LOG:  received fast shutdown request
+LOG:  database system is shut down
+waiting for server to start....FATAL:  the database system is starting up
+.LOG:  database system was shut down at 2020-03-01 18:47:57 IST
+FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.FATAL:  the database system is starting up
+.LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  SSL is not supported by this build
+FATAL:  configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/postgresql.conf" contains errors
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  SSL is not supported by this build
+FATAL:  configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/postgresql.conf" contains errors
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  SSL is not supported by this build
+FATAL:  configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/postgresql.conf" contains errors
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 19:38:29 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+FATAL:  permission denied for database "exam2"
+DETAIL:  User does not have CONNECT privilege.
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 19:43:53 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  hostssl is not supported by this build
+HINT:  Compile with --with-openssl to use SSL connections.
+CONTEXT:  line 97 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  specifying both host name and CIDR mask is invalid: "10.42.0.*/32"
+CONTEXT:  line 87 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 19:45:05 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  SSL is not supported by this build
+FATAL:  configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/postgresql.conf" contains errors
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  database system was shut down at 2020-03-01 19:52:59 IST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ done
+server started
+FATAL:  no pg_hba.conf entry for host "10.42.0.1", user "user1", database "exam1"
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+LOG:  specifying both host name and CIDR mask is invalid: "10.42.0.*/32"
+CONTEXT:  line 87 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+. stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+. stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+. stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+. stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start........LOG:  could not bind IPv4 socket: Address already in use
+HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+WARNING:  could not create listen socket for "localhost"
+FATAL:  could not create any TCP/IP sockets
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.......LOG:  could not bind IPv4 socket: Address already in use
+HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+WARNING:  could not create listen socket for "localhost"
+FATAL:  could not create any TCP/IP sockets
+. stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start......LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.....LOG:  invalid connection type "-"
+CONTEXT:  line 1 of configuration file "/home/vishal/Vishal/Sem6/SPC/postgres/pg_data/pg_hba.conf"
+FATAL:  could not load pg_hba.conf
+. stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+waiting for server to start.....LOG:  could not bind IPv4 socket: Address already in use
+HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+WARNING:  could not create listen socket for "localhost"
+FATAL:  could not create any TCP/IP sockets
+... stopped waiting
+pg_ctl: could not start server
+Examine the log output.

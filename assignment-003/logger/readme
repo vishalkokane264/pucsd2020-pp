@@ -1,3 +1,5 @@
-We need to control application logging.
-log4cpp
-implement logger in cpp
+Simple logger program.
+I've collected logs of posgresql in "example" file
+reading random n lines from example file and pushing it to my logfile with proper format.
+Builtin macros __FILE__,__func__,__line__ are used to get file, function, and line number.
+run:
