@@ -1,0 +1,46 @@
+import restapi project into workspace directory
+make directory with file in path /etc/pucsd2020-pp/rest-api.cfg
+make changes in /etc/pucsd2020-pp/rest-api.cfg file for database and user
+open mysql.go file in that create function comment the line 
+"if value.IsNil() || COLUMN_INGNORE_FLAG == field.Tag.Get("autoincr") ||
+			COLUMN_INGNORE_FLAG == field.Tag.Get("ignore") {
+			continue
+		}
+"
+*****************************
+also in UpdateById function
+/*		if value.IsNil() ||
+			COLUMN_INGNORE_FLAG == field.Tag.Get("ignore") {
+			continue
+		}
+*/
+save file
+*****************************
+
+open repository/user/user.go file
+In create function remove * from model.user
+and apply & in usr in following line
+	usr := obj.(model.User)
+	result, err := driver.Create(user.conn, &usr)
+	
+also in UpdateById function do the same; remove * and apply &
+	usr := obj.(model.User)
+	err := driver.UpdateById(user.conn, &usr)
+save file 
+*****************************
+build project by go build
+go run main.go
+*****************************
+
+give input :
+
+POST curl -X POST -d '{"first_name":"Vishal","last_name":"Kokane","email":"vishalkokane@gmail.com","password":"123456789","contact_number":"9525632541","updated_by":0}' http://localhost:9090/webapi/v1/user
+
+PUT curl -X PUT -d '{"first_name":"Vikas","last_name":"chavan","email":"vishalkokane@gmail.com","password":"123456789","contact_number":"9525632541","updated_by":0}' http://localhost:9090/webapi/v1/user/1
+
+Delete curl -X DELETE http://localhost:9090/webapi/v1/user/1
+
+GET curl -X GET http://localhost:9090/webapi/v1/user/1
+
+
+
