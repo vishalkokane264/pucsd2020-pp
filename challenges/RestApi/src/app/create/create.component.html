@@ -1,0 +1,114 @@
+<head>
+    <style>
+        input[type=text],
+        [type=password],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 30%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        td.class1 {
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        td.class2 {
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body ng-app="angularFormApp">
+    <img src="../../assets/images/addUser.jpeg" height=80px width=80px>
+    <form #login="ngForm" (ngSubmit)="onClickSubmit(login.value)" method=post>
+        <table width=100% border=0px align=center colspan=2>
+            <tr>
+                <td class="class1"> <label for="fname">First Name</label>
+                </td>
+                <td class="class2">
+                    <input type="text" class="form-control" ngModel id="fname" name="firstname"
+                        placeholder="Your name.."><br>
+                </td>
+            </tr>
+            <tr>
+                <td class="class1">
+                    <label for="lname">Last Name</label>
+
+                </td>
+                <td class="class2">
+                    <input type="text" id="lname" name="lastname" ngModel placeholder="Your last name.."><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="class1">
+                    <label for="lname">Email Id</label>
+
+                </td>
+                <td class="class2">
+                    <input type="text" ngModel id="emailId" name="emailId" placeholder="Your Email ID.."><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="class1">
+                    <label for="contact">Contact</label>
+
+                </td>
+                <td class="class2">
+                    <input type="text" id="contact" ngModel name="contact" placeholder="contact number.."><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="class1">
+                    <label for="password">Password</label>
+
+                </td>
+                <td class="class2">
+                    <input type="text" id="passwordVal" ngModel name="passwordVal"
+                        placeholder="Enter Password.."><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="class1">
+                    <label for="updateBy">Update By</label>
+
+                </td>
+                <td class="class2">
+                    <input type="text" id="updateBy" ngModel name="updateBy" placeholder="Updated by.."><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="class1">
+                </td>
+                <td class="class2">
+                    <input type="submit" value="Submit"> <input type="submit" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
