@@ -40,9 +40,9 @@ export class IssueListComponent implements OnInit {
 
   loadEmployees(){
     return this.bugService.GetIssues().subscribe((data: {}) => {
-      this.UserList = data;
-      console.log(data)
-    });
+      this.IssuesList = data;
+      console.log(this.IssuesList);
+    })
    }
 
    submitForm(){

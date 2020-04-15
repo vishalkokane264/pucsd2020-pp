@@ -11,7 +11,8 @@ import { EditIssueComponent } from './components/edit-issue/edit-issue.component
 import { IssueListComponent } from './components/issue-list/issue-list.component';
 import {ReactiveFormsModule} from '@angular/forms'
 import {BugService} from '../shared/shared/bug.service';
-import { AddUserComponent } from './add-user/add-user.component'
+import { AddUserComponent } from './add-user/add-user.component';
+import { DeleteissueComponent } from './components/deleteissue/deleteissue.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddUserComponent } from './add-user/add-user.component'
     AddIssueComponent,
     EditIssueComponent,
     IssueListComponent,
-    AddUserComponent
+    AddUserComponent,
+    DeleteissueComponent
   ],
   imports: [
     BrowserModule,

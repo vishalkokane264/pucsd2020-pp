@@ -8,7 +8,6 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BugService {
-  //baseurl = 'http://localhost:3000';
   baseurl='/api/webapi/v1/user'
   constructor(private http: HttpClient) { }
 
@@ -45,12 +44,12 @@ httpOptions={
     }
   
     // GET
-    GetIssues(): Observable<User[]> {
-      return this.http.get<User[]>(this.baseurl)
+    GetIssues(): Observable<User> {
+      return this.http.get<User>(this.baseurl)
       .pipe(
         retry(1),
          catchError(this.errorHandl)
-       );
+       )
      }
   
     // PUT

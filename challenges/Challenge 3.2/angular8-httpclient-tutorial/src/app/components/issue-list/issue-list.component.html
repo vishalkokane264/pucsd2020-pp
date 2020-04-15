@@ -12,7 +12,6 @@
             </form>
         </div>
 
-         Issue table
         <div class="col-md-12">
             <div class="inner">
                 <h3>User Details</h3>
@@ -21,11 +20,10 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">First name</th>
-                            <th scope="col">last name</th>
-                            <th scope="col">email id</th>
-                            <th scope="col">contact</th>
-                            <th scope="col">updated by</th>
-
+                            <th scope="col">Last name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">COntact</th>
+                            <th scope="col">Updated by</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,12 +34,7 @@
                             <td>{{issues.email}}</td>
                             <td>{{issues.contact_number}}</td>
                             <td>{{issues.updated_by}}</td>
-                            <td>
-                                <button type="button" class="btn btn-success btn-sm move-right"
-                                    [routerLink]="['/edit-issue/', issues.id]">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm"
-                                    (click)="deleteIusse('issues')">Remove</button>
-                            </td>
+
                         </tr>
                     </tbody>
                 </table>

@@ -1,0 +1,14 @@
+<div class="container wrapper">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Delete Record</h3>
+            <form [formGroup]="deleteForm" (ngSubmit)="deleteUser()" novalidate>
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input type="text" formControlName="userId" class="form-control" maxlength="20"><br>
+                    <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
+                </div>
+            </form>
+        </div>
+</div>
