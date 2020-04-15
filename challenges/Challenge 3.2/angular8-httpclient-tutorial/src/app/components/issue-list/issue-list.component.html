@@ -1,0 +1,51 @@
+<div class="container wrapper">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Search Record</h3>
+            <form [formGroup]="searchForm" (ngSubmit)="submitForm()" novalidate>
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input type="text" formControlName="userId" class="form-control" maxlength="20"><br>
+                    <button type="submit" class="btn btn-danger btn-sm" >Search</button>
+                </div>
+            </form>
+        </div>
+
+         Issue table
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>User Details</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First name</th>
+                            <th scope="col">last name</th>
+                            <th scope="col">email id</th>
+                            <th scope="col">contact</th>
+                            <th scope="col">updated by</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let issues of IssuesList">
+                       <th scope="row">{{issues.id}}</th>
+                            <td>{{issues.first_name}}</td>
+                            <td>{{issues.last_name}}</td>
+                            <td>{{issues.email}}</td>
+                            <td>{{issues.contact_number}}</td>
+                            <td>{{issues.updated_by}}</td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm move-right"
+                                    [routerLink]="['/edit-issue/', issues.id]">Edit</button>
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    (click)="deleteIusse('issues')">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
