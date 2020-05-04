@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS user_role(
 
 INSERT INTO user_role values(1,'Admin');
 INSERT INTO user_role values(2,'Read');
-INSERT INTO user_role values(3,'Write');
+INSERT INTO user_role values(3,'read/write');
 
 -- CREATE TABLE IF NOT EXISTS permission(
 --     perm_id int PRIMARY KEY,
