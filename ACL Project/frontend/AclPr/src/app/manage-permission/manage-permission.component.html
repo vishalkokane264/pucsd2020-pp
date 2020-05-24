@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*div.fixed {
+  position: fixed;
+  bottom: 00px;
+  right: 40px;
+  width: 1200px;
+  height:740px;
+  border: 3px solid blue;
+}*/
+  .about-section {
+  padding: 10px;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+}
+::-moz-selection { /* Code for Firefox */
+  color: red;
+  background: yellow;
+}
+</style>
+</head>
+<body>
+<div class="about-section">
+  <h1><u><b><i>Manage_Permission</i></b></u></h1>
+</div>
+<div>
+<label for="">Choose a Option :</label>
+<!--<select (change)="onNavigate($event.target.value)" id="CRUD" autofocus>-->
+
+<select id="CRUD" autofocus>
+  <option value="SELECT">SELECT</option>
+  <option [routerLink]="['/add-resource']">Add_Resource</option>
+  <option [routerLink]="['/res-view']">view_Resource</option>
+  <option [routerLink]="['/grant']">Grant</option>
+  <option [routerLink]="['/revoke']">Revoke</option>
+</select>
+  <router-outlet></router-outlet>
+</div>
+</body>
+</html>
+

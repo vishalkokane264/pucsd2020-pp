@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+
+from ,label ,input {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+input
+{
+  margin-top: 10px;
+}
+
+a
+{
+  color:blue;
+  font-size: 30px;
+}
+a:hover
+{
+  cursor:pointer;
+  color:red;
+}
+</style>
+</head>
+<body>
+<h2>Group_Record</h2>
+
+<table>
+    <th>id</th>
+   <th>group_name</th>
+   <th>Origin_Name</th>
+   <th></th>
+   <th></th>
+   <th></th>
+   <!--<th>password</th>-->
+ <tr *ngFor=" let users of groups">
+     <td>{{users.id}}</td>
+     <td>{{users.group_name}}</td>
+     <td>{{users.origin_name}}</td> 
+     <td (click)="deleteRecord(users.group_name)"><a>Delete</a></td>
+     <!--<td [routerLink] = "['/update-user',users.id]"><a>Update</a></td>-->
+     <td [routerLink] = "['/add-member',users.id]"><a>Add_Member</a></td>
+     <td [routerLink]="['/view-group-member',users.id]"><a>View_Member</a></td>
+ </tr>
+</table>
+
+</body>
+</html>
+

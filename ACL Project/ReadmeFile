@@ -1,0 +1,24 @@
+Configuration of  ACL Project
+Software configuration required:
+Angular-cli setup
+Mysql server
+Golang server
+Node
+
+
+****Frontend setup
+Download Acl project to directory and go to that directory by open terminal.
+Type "cd AclPr"
+Type "npm install". This will install all dependencies require to run this project. Then
+Run the project by entering command:
+ng serve  --proxy-config proxy.config.js
+This will run Project on localhost:4200
+
+
+*****Backend setup
+Download AclBackend.tar.gz and extract it
+Type "cd restapi"
+Run project using "go build" and then "go run main.go"
+This will run backend on localhost:9091 port
+
+Then Open localhost:4200 on Browser and done...

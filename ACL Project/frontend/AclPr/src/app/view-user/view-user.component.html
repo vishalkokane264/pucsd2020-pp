@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+
+from ,label ,input {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+input
+{
+  margin-top: 10px;
+}
+
+a
+{
+  color:blue;
+  font-size: 30px;
+}
+a:hover
+{
+  cursor:pointer;
+  color:red;
+}
+</style>
+</head>
+<body>
+<h2>User_Record</h2>
+
+<table>
+    <th>id</th>
+   <th>user_fname</th>
+   <th>user_lname</th>
+   <th>username</th>
+   <th>Delete</th>
+   <th>update</th>
+   <!--<th>password</th>-->
+ <tr *ngFor=" let users of users;">
+     <td>{{users.id}}</td>
+     <td>{{users.user_fname}}</td>
+     <td>{{users.user_lname}}</td>
+     <td>{{users.username}}</td>
+     <td (click)="deleteRecord(users.username)"><a>Delete</a></td>
+     <td [routerLink] = "['/update-user',users.id]"><a>Update</a></td>
+ </tr>
+</table>
+
+</body>
+</html>

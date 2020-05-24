@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+
+from ,label ,input {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+input
+{
+  margin-top: 10px;
+}
+
+a
+{
+  color:blue;
+  font-size: 30px;
+}
+a:hover
+{
+  cursor:pointer;
+  color:red;
+}
+</style>
+</head>
+<body>
+<table>
+   <th>user_name</th>
+   <th>gr_name</th>
+ <tr *ngFor=" let users of users">
+     <td>{{users.user_name}}</td>
+     <td>{{users.gr_name}}</td>
+ </tr>
+</table>
+
+</body>
+</html>

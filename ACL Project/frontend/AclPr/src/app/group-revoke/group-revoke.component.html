@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+
+from ,label ,input {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+input
+{
+  margin-top: 10px;
+}
+
+a
+{
+  color:blue;
+  font-size: 30px;
+}
+a:hover
+{
+  cursor:pointer;
+  color:red;
+}
+</style>
+</head>
+<body>
+<h2>Group_Revoke</h2>
+
+<table>
+  <th>id</th>
+  <th>groupname</th>
+   <th>file_id</th>
+   <th>given_by</th>
+   <th>perm_type_</th>
+   <th>Button</th>
+ <tr *ngFor=" let users of ress;">
+     <td>{{users.id}}</td>
+     <td>{{users.groupname}}</td>
+     <td>{{users.file_id}}</td>
+     <td>{{users.given_by}}</td>
+     <td>{{users.perm_type}}</td>
+     <td (click)="deleteRecord(users.id)"><a>Revoke</a></td>
+ </tr>
+</table>
+</body>
+</html>

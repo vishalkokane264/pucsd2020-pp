@@ -1,0 +1,7 @@
+.logoutLblPos{
+  position: absolute;
+  right :20px;
+  cursor: pointer;
+  bottom:610px;
+  float: left;
+}

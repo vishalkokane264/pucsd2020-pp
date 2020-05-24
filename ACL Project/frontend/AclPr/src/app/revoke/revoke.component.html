@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/*div.fixed {
+  position: fixed;
+  bottom: 00px;
+  right: 40px;
+  width: 1200px;
+  height:740px;
+  border: 3px solid blue;
+}*/
+  .about-sect {
+  padding: 10px;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+}
+::-moz-selection { /* Code for Firefox */
+  color: red;
+  background: yellow;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  width: 400px;
+  height:250px;
+  background-color:#0080ff;
+  border: 3px solid blue;
+}
+.about-section {
+  padding: 10px;
+  text-align: center;
+  background-color: #000000;
+  color:yellow;
+}
+input[type=text], select, textarea {
+  width: 60%;
+  padding: 12px;
+  border: 4px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 55px 45px 6px;
+  display: inline-block;
+}
+
+input[type=Submit] {
+  background-color: #000000;
+  color: yellow;
+  padding: 12px 20px;
+  border: blue;
+  border-radius: 4px;
+  position: absolute;
+  left: 250px;
+  right :40px;
+  cursor: pointer;
+  float: right;
+}
+input[type=Button] {
+  background-color: #000000;
+  color: yellow;
+  padding: 12px 20px;
+  border: blue;
+  border-radius: 4px;
+  position: absolute;
+  left: 90px;
+  right :300px;
+  cursor: pointer;
+  float: left;
+}
+input[type=Button]:hover {
+  background-color: blue;
+}
+  
+input[type=Submit]:hover {
+  background-color: blue;
+}
+
+/*.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}*/
+
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+.col-25 {
+  float: left;
+  width: 49%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 45%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=Button] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=reset] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.container {
+  position:absolute;
+  bottom:00px;
+  right:30px;
+  padding: 16px;
+  background-color: red;
+}
+
+</style>
+</head>
+<body>
+<div class="about-sect">
+  <h1><u><b><i>Access_Control_List</i></b></u></h1>
+</div>
+<div>
+<label for="CRUD">Choose a Option :</label>
+<!--<select (change)="onNavigate($event.target.value)" id="CRUD" autofocus>-->
+
+<select id="CRUD" autofocus>
+  <option value="SELECT">SELECT</option>
+  <option [routerLink]="['/add-resource']">Add_Resource</option>
+  <option [routerLink]="['/res-view']">ViewResource</option>
+  <option [routerLink]="['/grant']">Grant</option>
+  <option [routerLink]="['/revoke']">Revoke</option>
+</select>
+  <router-outlet></router-outlet>
+</div>
+
+<div class="fixed">
+<div class="about-section">
+	<h1><u><b><i>Revoke</i></b></u></h1>
+</div>
+    <div class="container">
+  <form id="fornewUser">
+        <label for="group_name"><b>Revoke Access to User or Group:-</b></label>
+    <div class="row">
+      <input type="Submit" [routerLink]="['/group-revoke']" value="Group">
+    </div>
+    <div class="row">
+      <input type="Button" [routerLink]="['/user-revoke']" value="User" >
+    </div>
+    <!--<div class="container signin">
+    <p>show groups? <a href="#" [routerLink]="['/view-group']">view_group</a>.</p>
+  </div>-->
+  </form>
+  <div class="a"><div id="output">
+  </div>
+</div>
+  <!--><table>
+      <th>Id</th>
+     <th>First_Name</th>
+     <th>Last_Name</th>
+     <th>Email_ID</th>
+     <th>Password</th>
+     <th>Contact_no</th>
+   <div *ngFor=" let user of users">
+     <tr>
+       <td>{{user['id']}</td>
+       <td>{{user.first_name}}</td>
+       <td>{{user.last_name}}</td>
+       <td>{{user.email}}</td>
+       <td>{{user.password}}</td>
+       <td>{{user.contact_number}}</td>
+      </tr>
+    </div>
+</table>-->
+</div>
+</div>
+</body>
+</html>

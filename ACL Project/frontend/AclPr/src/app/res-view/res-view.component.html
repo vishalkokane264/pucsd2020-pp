@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+
+from ,label ,input {
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px;
+}
+input
+{
+  margin-top: 10px;
+}
+
+a
+{
+  color:blue;
+  font-size: 30px;
+}
+a:hover
+{
+  cursor:pointer;
+  color:red;
+}
+</style>
+</head>
+<body>
+<h2>Res_Record</h2>
+
+<table>
+	<th>Id</th>
+    <th>file_name</th>
+   <th>owner_name</th>
+   <th>perm_type</th>
+   <th>Button</th>
+   <!--<th>password</th>-->
+ <tr *ngFor=" let users of resource;">
+ 	 <td>{{users.id}}</td>
+     <td>{{users.file_name}}</td>
+     <td>{{users.owner_name}}</td>
+     <td>{{users.perm_type}}</td>
+    <td [routerLink] = "['/file-explorer',users.id]"><a>Open</a></td>
+ </tr>
+</table>
+
+</body>
+</html>
